@@ -3,7 +3,7 @@
     Function to get Total Sum of Disks, Disks free space or each Disk separate.
 .DESCRIPTION
     You don`t need edit this script, but run Function in Powershell console with Server local admin privileges.
-    You can get each disk total and free space on server that you point, or total sum of disks space.
+    You can get each disk total and free space on server that you point, or total sum of all disks space.
 .PARAMETER Server
     Mandatory param, to point the target server.
 .PARAMETER Total
