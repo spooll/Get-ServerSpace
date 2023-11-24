@@ -8,12 +8,16 @@
     Mandatory param, to point the target server.
 .PARAMETER Total
     Gets total sum of all server disks and free space.
+.EXAMPLE
+    Get-ServerSpace -Server s-wsus-007
 
     ServerName Label      TotalSpace(GB) FreeSpace(GB)
     ---------- -----      -------------- -------------
     s-wsus-007                        59            28
     s-wsus-007 New Volume           1515           709
+    
 
+    Get-ServerSpace -Server s-wsus-007 -Total
 
     PSComputerName : s-wsus-007
     Property       : TotalSpace(GB)
@@ -22,12 +26,6 @@
     PSComputerName : s-wsus-007
     Property       : FreeSpace(GB)
     Sum            : 737
-
-
-
-.EXAMPLE
-    Get-ServerSpace -Server s-wsus-007
-    Get-ServerSpace -Server s-wsus-007 -Total
 #>
 
 function global:Get-ServerSpace {
