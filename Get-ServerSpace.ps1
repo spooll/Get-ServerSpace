@@ -37,7 +37,7 @@ function global:Get-ServerSpace {
     
     if ($Server -and !$Total)
     {
-        Invoke-Command $Server {Get-WmiObject -Namespace "root/cimv2" -Class Win32_Volume |Where-Object { $_.Capacity -gt 1111111111 -and ($_.DriveType -eq 2 -or $_.DriveType -eq 3) }| Select-Object -Property Label,@{'Name' = 'TotalSpace(GB)'; Expression= { [int]($_.Capacity / 1GB) }},@{'Name' = 'FreeSpace(GB)'; Expression= { [int]($_.FreeSpace / 1GB) }}} |Sort-Object "TotalSpace(GB)"| Format-Table @{n="ServerName"; e={$_.PSComputerName}},Label,"TotalSpace(GB)","FreeSpace(GB)" 
+        Invoke-Command $Server {Get-WmiObject -Namespace "root/cimv2" -Class Win32_Volume |Where-Object { $_.Capacity -gt 1111111111 -and ($_.DriveType -eq 2 -or $_.DriveType -eq 3) }| Select-Object -Property DriveLetter,Label,@{'Name' = 'TotalSpace(GB)'; Expression= { [int]($_.Capacity / 1GB) }},@{'Name' = 'FreeSpace(GB)'; Expression= { [int]($_.FreeSpace / 1GB) }}} |Sort-Object "TotalSpace(GB)"| Format-Table @{n="ServerName"; e={$_.PSComputerName}},DriveLetter,Label,"TotalSpace(GB)","FreeSpace(GB)" 
     }
     
     
